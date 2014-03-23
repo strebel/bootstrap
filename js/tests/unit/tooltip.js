@@ -503,7 +503,7 @@ $(function () {
     $('head').append('<style id="test"> .tooltip, .tooltip .tooltip-inner { width: 200px; height: 200px; max-width: none; } </style>')
     $('head').append('<style id="viewport-style"> .container-viewport { position: absolute; top: 50px; left: 60px; width: 300px; height: 300px; } </style>')
 
-    var container = $('<div />', { class: 'container-viewport' }).appendTo('body')
+    var container = $('<div />', { 'class': 'container-viewport' }).appendTo('body')
     var target = $('<a href="#" rel="tooltip" title="tip" style="position: fixed; top: 50px; left: 350px;"></a>')
           .appendTo(container)
           .bootstrapTooltip({ placement: 'bottom', viewport: '.container-viewport' })
