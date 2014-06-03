@@ -141,6 +141,7 @@
   right: 0;
   left: 0;
   z-index: @zindex-navbar-fixed;
+  transition: background-color .25s ease;
 
   // Undo the rounded corners
   @media (min-width: @grid-float-breakpoint) {
@@ -150,6 +151,20 @@
 .navbar-fixed-top {
   top: 0;
   border-width: 0 0 1px;
+}
+.navbar-fixed-top:hover,.navbar-fixed-top:active {
+	 transition: background-color 0.25s ease;
+	 
+	 background-color: @brand-blue-dark;
+}
+.navbar-fixed-top.navbar-default:hover .navbar-nav > li > a {
+	color:rgba(256,256,256,.7);
+}
+.navbar-fixed-top.navbar-default:hover .navbar-nav > li:hover > a {
+	color:rgba(256,256,256,.9);
+}
+.navbar-fixed-top.navbar-default:hover .navbar-nav > .active > a {
+	color:#fff;
 }
 .navbar-fixed-bottom {
   bottom: 0;
