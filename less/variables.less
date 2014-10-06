@@ -3,10 +3,8 @@
 // --------------------------------------------------
 
 
-//== Colors
-//
-//## Gray and brand colors for use across Bootstrap.
-
+// variables.less overrides
+@gray-base:              #000;
 @gray-darker:            darken(@gray, 25%); // #222
 @gray-dark:              darken(@gray, 15%);   // #333
 @gray:                   #707d84; // #555
@@ -33,6 +31,13 @@
 @brand-danger:          @brand-accent-two;
 @brand-clear-light:     #fff;
 @brand-clear-dark:      @gray-dark;
+
+
+
+
+
+// done
+
 
 //== Scaffolding
 //
@@ -205,14 +210,24 @@
 //** Text color for `<input>`s
 @input-color:                    @brand-main-mid;
 //** `<input>` border color
-@input-border:                   @gray-lighter;
-//** `<input>` border radius
+
+@input-border:                   #ccc;
+
+// TODO: Rename `@input-border-radius` to `@input-border-radius-base` in v4
+//** Default `.form-control` border radius
+
 @input-border-radius:            @border-radius-base;
+//** Large `.form-control` border radius
+@input-border-radius-large:      @border-radius-large;
+//** Small `.form-control` border radius
+@input-border-radius-small:      @border-radius-small;
+
 //** Border color for inputs on focus
 @input-border-focus:             @brand-main-mid;
 
 //** Placeholder text color
-@input-color-placeholder:        @gray;
+
+@input-color-placeholder:        #999;
 
 //** Default `.form-control` height
 @input-height-base:              (@line-height-computed + (@padding-base-vertical * 2) + 2);
@@ -388,12 +403,13 @@
 
 // Inverted navbar
 // Reset inverted navbar basics
-@navbar-inverse-color:                      #fff;
-@navbar-inverse-bg:                         @brand-main-dark;
+
+@navbar-inverse-color:                      lighten(@gray-light, 15%);
+@navbar-inverse-bg:                         #222;
 @navbar-inverse-border:                     darken(@navbar-inverse-bg, 10%);
 
 // Inverted navbar links
-@navbar-inverse-link-color:                 @gray-light;
+@navbar-inverse-link-color:                 lighten(@gray-light, 15%);
 @navbar-inverse-link-hover-color:           #fff;
 @navbar-inverse-link-hover-bg:              transparent;
 @navbar-inverse-link-active-color:          @navbar-inverse-link-hover-color;
@@ -422,8 +438,6 @@
 
 @nav-disabled-link-color:                   @gray-light;
 @nav-disabled-link-hover-color:             @gray-light;
-
-@nav-open-link-hover-color:                 #fff;
 
 //== Tabs
 @nav-tabs-border-color:                     @gray;
@@ -648,6 +662,8 @@
 @progress-bg:                 #f5f5f5;
 //** Progress bar text color
 @progress-bar-color:          #fff;
+//** Variable for setting rounded corners on progress bar.
+@progress-border-radius:      @border-radius-base;
 
 //** Default progress bar color
 @progress-bar-bg:             @brand-primary;
@@ -837,6 +853,8 @@
 //
 //##
 
+//** Horizontal offset for forms and lists.
+@component-offset-horizontal: 180px;
 //** Text muted color
 @text-muted:                  @gray-light;
 //** Abbreviations and acronyms border color
@@ -851,14 +869,7 @@
 @blockquote-border-color:     @gray;
 //** Page header border color
 @page-header-border-color:    @gray-lighter;
-
-
-//== Miscellaneous
-//
-//##
-
+//** Width of horizontal description list titles
+@dl-horizontal-offset:        @component-offset-horizontal;
 //** Horizontal line color.
 @hr-border:                   @gray-lighter;
-
-//** Horizontal offset for forms and lists.
-@component-offset-horizontal: 180px;
