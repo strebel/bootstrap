@@ -143,6 +143,15 @@ module.exports = function (grunt) {
           'docs/assets/js/src/application.js'
         ],
         dest: 'docs/assets/js/docs.min.js'
+      },
+      
+      pagely: {
+        // NOTE: This src list is duplicated in footer.html; if making changes here, be sure to update the other copy too.
+        src: [
+          '../js/code.js',
+         
+        ],
+        dest: '../js/code.min.js'
       }
     },
 
@@ -438,7 +447,7 @@ module.exports = function (grunt) {
   grunt.registerTask('dist-css', ['less-compile', 'autoprefixer:core', 'autoprefixer:theme', 'usebanner', 'csscomb:dist', 'cssmin:minifyCore', 'cssmin:minifyTheme']);
 
   // Full distribution task.
-  grunt.registerTask('dist', ['clean:dist', 'dist-css', 'copy:fonts', 'dist-js']);
+  grunt.registerTask('dist', ['clean:dist', 'dist-css', 'copy:fonts', 'dist-js','uglify:pagely']);
 
   // Default task.
   grunt.registerTask('default', ['clean:dist', 'copy:fonts', 'test']);

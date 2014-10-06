@@ -367,7 +367,7 @@ h1.entry-title a:hover {
 	background-repeat: repeat;
 }
 .fullbg-image{
-	background: transparent;
+	background: #fff;
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position:center 20%;
@@ -1410,8 +1410,12 @@ dl > dd {
 }
 .post .entry-content {
 	margin:0;
-	padding: 2em 0;
+	padding: 2em 0 1em;
 	border-top:1px solid @gray-lighter;
+}
+.post .entry-content img.size-full {
+	margin:2em 0;
+	border: 1px solid #fff;
 }
 .post .entry-content p:first-child:first-letter {
 	font-size:2em;
@@ -1419,10 +1423,10 @@ dl > dd {
 	float:left;
 	background: @gray-dark;
 	color:#fff;
-	padding:.7em .95em;
+	padding:.92em .95em;
 	margin:0 .5em .1em 0;
 	line-height: 1.2em;
-	font-family: @font-family-serif;
+	font-family: @h-font;
 }
 .post .share {
 	padding:4em 0;
@@ -1490,7 +1494,8 @@ i.surfingbird::before{
 	font-weight: bold;
 }
 /* gforms */
-	
+
+
 	 			
 .gform_body ul {
 	list-style: none;
@@ -1822,8 +1827,15 @@ object {
 .abstract1_header {
 	background-image:url('@{theme-path}/img/abstract_1.jpg');
 }
+
+.tools_header {
+	background-image:url('@{theme-path}/img/dev-tools.jpg');
+}
 //xs
 @media (max-width: @screen-xs-max) { /* Change to whatever media query you require */
+      .tools_header {
+			background-image:url('@{theme-path}/img/dev-tools_m.jpg');
+		}
       .abstract1_header {
 			background-image:url('@{theme-path}/img/abstract_1_m.jpg');
 		}
