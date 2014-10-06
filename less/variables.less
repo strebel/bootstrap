@@ -7,20 +7,33 @@
 //
 //## Gray and brand colors for use across Bootstrap.
 
-@gray-darker:            darken(@gray, 70%); // #222
-@gray-dark:              darken(@gray, 35%);   // #333
-@gray:                   #bdc3c7; // #555
-@gray-light:             lighten(@gray, 10%);   // #999
-@gray-lighter:           lighten(@gray, 20%); // #eee
+@gray-darker:            darken(@gray, 25%); // #222
+@gray-dark:              darken(@gray, 15%);   // #333
+@gray:                   #707d84; // #555
+@gray-light:             lighten(@gray, 20%);   // #999
+@gray-lighter:           lighten(@gray, 40%); // #eee
 
-@brand-primary:         #3498db;
-@brand-success:         #2cc36b;
+/*@brand-main-dark:       #2C3E50;
+@brand-main-light:      #3498DB;
+@brand-main-mid:        #2980B9;
+@brand-accent-one:		#E73347;
+@brand-accent-two:		#33dc86;*/
+
+@brand-main-dark:       #2B5B7E;
+@brand-main-mid:        #5594D1;
+@brand-main-light:      #BDD4DE;
+@brand-main-near-white: #EFEFEF;
+@brand-accent-one:		#FF530D;
+@brand-accent-two:		#ffa10d;
+
+@brand-primary:         @brand-main-mid;
+@brand-success:         @brand-accent-one;
 @brand-info:            #92cef6;
-@brand-warning:         #f3ba0e;
-@brand-danger:          #e73355;
+@brand-warning:         #dbc23a;
+@brand-danger:          @brand-accent-two;
 @brand-clear-light:     #fff;
 @brand-clear-dark:      @gray-dark;
-@brand-blue-dark:       #2c3e50;
+
 //== Scaffolding
 //
 // ## Settings for some of the most global styles.
@@ -31,7 +44,7 @@
 @text-color:            @gray-dark;
 
 //** Global textual link color.
-@link-color:            @brand-blue-dark;
+@link-color:            @brand-primary;
 //** Link hover color set via `darken()` function.
 @link-hover-color:      darken(@link-color, 15%);
 
@@ -46,12 +59,13 @@
 @font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
 @font-family-base:        @font-family-sans-serif;
 
-@font-size-base:          18px;
+@font-size-base:          14px;
 @font-size-xlarge:        ceil((@font-size-base * 1.5)); // ~18px
 @font-size-large:         ceil((@font-size-base * 1.25)); // ~18px
 @font-size-small:         ceil((@font-size-base * 0.85)); // ~12px
 
 @font-size-h1:            floor((@font-size-base * 2.6)); // ~36px
+@font-size-h1-lg:            floor((@font-size-base * 3.8)); // ~36px
 @font-size-h2:            floor((@font-size-base * 2.15)); // ~30px
 @font-size-h3:            ceil((@font-size-base * 1.7)); // ~24px
 @font-size-h4:            ceil((@font-size-base * 1.25)); // ~18px
@@ -127,15 +141,15 @@
 @table-condensed-cell-padding:  5px;
 
 //** Default background color used for all tables.
-@table-bg:                      transparent;
+@table-bg:                      #fff;
 //** Background color used for `.table-striped`.
-@table-bg-accent:               #f9f9f9;
+@table-bg-accent:               lighten(@gray-light,22%);
 //** Background color used for `.table-hover`.
-@table-bg-hover:                #f5f5f5;
+@table-bg-hover:                @gray-light;
 @table-bg-active:               @table-bg-hover;
 
 //** Border color for table and cell borders.
-@table-border-color:            #ddd;
+@table-border-color:            @gray-lighter;
 
 
 //== Buttons
@@ -144,9 +158,9 @@
 
 @btn-font-weight:                300;
 
-@btn-default-color:              @gray-dark;
-@btn-default-bg:                 lighten(@gray-lighter,10%);
-@btn-default-border:             @gray;
+@btn-default-color:              @gray;
+@btn-default-bg:                 lighten(@gray-lighter,20%);
+@btn-default-border:             @gray-light;
 
 @btn-primary-color:              #fff;
 @btn-primary-bg:                 @brand-primary;
@@ -189,13 +203,13 @@
 @input-bg-disabled:              @gray-lighter;
 
 //** Text color for `<input>`s
-@input-color:                    @brand-blue-dark;
+@input-color:                    @brand-main-mid;
 //** `<input>` border color
-@input-border:                   @gray;
+@input-border:                   @gray-lighter;
 //** `<input>` border radius
 @input-border-radius:            @border-radius-base;
 //** Border color for inputs on focus
-@input-border-focus:             @brand-primary;
+@input-border-focus:             @brand-main-mid;
 
 //** Placeholder text color
 @input-color-placeholder:        @gray;
@@ -348,17 +362,17 @@
 @navbar-padding-vertical:          ((@navbar-height - @line-height-computed) / 2);
 @navbar-collapse-max-height:       340px;
 
-@navbar-default-color:             @gray-dark;
-@navbar-default-bg:                rgba(0,0,0,0.05);
-@navbar-default-border:            rgba(0,0,0,0.05);
+@navbar-default-color:             @gray-darker;
+@navbar-default-bg:                #fff;
+@navbar-default-border:            darken(#fff,5%);
 
 // Navbar links
-@navbar-default-link-color:                rgba(0,0,0,0.1);
-@navbar-default-link-hover-color:          rgba(256,256,256,0.9);
-@navbar-default-link-hover-bg:             rgba(0,0,0,.3);
-@navbar-default-link-active-color:         rgba(0,0,0,.8);
-@navbar-default-link-active-bg:            rgba(0,0,0,.03);
-@navbar-default-link-disabled-color:       #ccc;
+@navbar-default-link-color:                @gray-dark;
+@navbar-default-link-hover-color:          @gray-darker;
+@navbar-default-link-hover-bg:             fade(@gray-lighter,20%);
+@navbar-default-link-active-color:         @gray-darker;
+@navbar-default-link-active-bg:            fade(@gray-lighter,40%);
+@navbar-default-link-disabled-color:       @gray-lighter;
 @navbar-default-link-disabled-bg:          transparent;
 
 // Navbar brand label
@@ -367,7 +381,7 @@
 @navbar-default-brand-hover-bg:            transparent;
 
 // Navbar toggle
-@navbar-default-toggle-hover-bg:           #ddd;
+@navbar-default-toggle-hover-bg:           rgba(0,0,0,.03);
 @navbar-default-toggle-icon-bar-bg:        #888;
 @navbar-default-toggle-border-color:       #ddd;
 
@@ -375,7 +389,7 @@
 // Inverted navbar
 // Reset inverted navbar basics
 @navbar-inverse-color:                      #fff;
-@navbar-inverse-bg:                         @brand-blue-dark;
+@navbar-inverse-bg:                         @brand-main-dark;
 @navbar-inverse-border:                     darken(@navbar-inverse-bg, 10%);
 
 // Inverted navbar links
@@ -588,7 +602,7 @@
 @modal-content-fallback-border-color:          #999;
 
 //** Modal backdrop background color
-@modal-backdrop-bg:           @brand-blue-dark;
+@modal-backdrop-bg:           @gray-dark;
 //** Modal backdrop opacity
 @modal-backdrop-opacity:      .8;
 //** Modal header border color
@@ -813,9 +827,9 @@
 @kbd-color:                   #fff;
 @kbd-bg:                      #333;
 
-@pre-bg:                      #f5f5f5;
+@pre-bg:                      @gray-lighter;
 @pre-color:                   @gray-dark;
-@pre-border-color:            #ccc;
+@pre-border-color:            darken(@gray-lighter,10);
 @pre-scrollable-max-height:   340px;
 
 
@@ -830,11 +844,11 @@
 //** Headings small color
 @headings-small-color:        @gray-light;
 //** Blockquote small color
-@blockquote-small-color:      @gray-light;
+@blockquote-small-color:      @gray;
 //** Blockquote font size
 @blockquote-font-size:        (@font-size-base * 1.25);
 //** Blockquote border color
-@blockquote-border-color:     @gray-lighter;
+@blockquote-border-color:     @gray;
 //** Page header border color
 @page-header-border-color:    @gray-lighter;
 
