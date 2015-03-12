@@ -174,6 +174,17 @@ module.exports = function (grunt) {
         src: 'less/bootstrap.less',
         dest: 'dist/css/<%= pkg.name %>.css'
       },
+      compilePagely: {
+        options: {
+          strictMath: true,
+          sourceMap: true,
+          outputSourceFiles: true,
+          sourceMapURL: '<%= pkg.name %>.css.map',
+          sourceMapFilename: '../bs/css/<%= pkg.name %>.css.map'
+        },
+        src: 'less/bootstrap.less',
+        dest: '../bs/css/<%= pkg.name %>.css'
+      },
       compileTheme: {
         options: {
           strictMath: true,
@@ -186,6 +197,7 @@ module.exports = function (grunt) {
         dest: 'dist/css/<%= pkg.name %>-theme.css'
       }
     },
+ 
 
     autoprefixer: {
       options: {
@@ -253,6 +265,10 @@ module.exports = function (grunt) {
         src: 'dist/css/<%= pkg.name %>.css',
         dest: 'dist/css/<%= pkg.name %>.min.css'
       },
+      minifyPagely: {
+        src: '../bs/css/<%= pkg.name %>.css',
+        dest: '../bs/css/<%= pkg.name %>.min.css'
+      },
       minifyTheme: {
         src: 'dist/css/<%= pkg.name %>-theme.css',
         dest: 'dist/css/<%= pkg.name %>-theme.min.css'
@@ -302,6 +318,10 @@ module.exports = function (grunt) {
       fonts: {
         src: 'fonts/*',
         dest: 'dist/'
+      },
+      fontspagely: {
+        src: 'fonts/*',
+        dest: '../bs/'
       },
       docs: {
         src: 'dist/*/*',
@@ -366,9 +386,10 @@ module.exports = function (grunt) {
       },
       less: {
         files: 'less/**/*.less',
-        tasks: 'less'
+        tasks: ['less','cssmin']
       }
-    },
+      
+   },
 
     sed: {
       versionNumber: {
@@ -444,10 +465,10 @@ module.exports = function (grunt) {
 
   // CSS distribution task.
   grunt.registerTask('less-compile', ['less:compileCore', 'less:compileTheme']);
-  grunt.registerTask('dist-css', ['less-compile', 'autoprefixer:core', 'autoprefixer:theme', 'usebanner', 'csscomb:dist', 'cssmin:minifyCore', 'cssmin:minifyTheme']);
+  grunt.registerTask('dist-css', ['less-compile', 'autoprefixer:core', 'autoprefixer:theme', 'usebanner', 'csscomb:dist', 'cssmin:minifyCore', 'cssmin:minifyTheme','less:compilePagely','cssmin:minifyPagely']);
 
   // Full distribution task.
-  grunt.registerTask('dist', ['clean:dist', 'dist-css', 'copy:fonts', 'dist-js','uglify:pagely']);
+  grunt.registerTask('dist', ['clean:dist', 'dist-css', 'copy:fonts', 'copy:fontspagely','dist-js','uglify:pagely']);
 
   // Default task.
   grunt.registerTask('default', ['clean:dist', 'copy:fonts', 'test']);

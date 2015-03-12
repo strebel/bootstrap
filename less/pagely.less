@@ -3,9 +3,23 @@
 @input-border:                   @gray-lighter;
 @input-color-placeholder:        @gray;
 
-
+@font-size-h1-xlg: 8em;
 @theme-path: "/wp-content/themes/pagely14";
 
+/*
+
+@brand-main-dark:       #2B5B7E;
+@brand-main-mid:        #5594D1;
+@brand-main-light:      #BDD4DE;
+@brand-main-near-white: #EFEFEF;
+@brand-accent-one:		#FF530D;
+@brand-accent-two:		#ffa10d;
+
+*/
+
+html,body {
+    height:100%;
+}
 
 // Danger and error appear as red
 .btn-accent-one {
@@ -197,6 +211,16 @@ h1.font-lg {
 	font-size:@font-size-h1-lg;
 	
 }
+h1.font-lg small {
+	font-size:.4em;
+}
+h1.font-xlg {
+	font-size:@font-size-h1-xlg;
+	
+}
+h1.font-xlg small {
+	font-size: 18px;
+}
 
 h1.entry-title a:hover {
 	text-decoration: none;
@@ -339,6 +363,13 @@ h1.entry-title a:hover {
 	display: block;
 	position: relative;
 }
+
+.fullbg.first {
+	width:100%;
+	padding:14% 0 10% 0;
+	display: block;
+	position: relative;
+}
 .bg-extra-pad {
 	padding:20% 0;
 }
@@ -354,14 +385,21 @@ h1.entry-title a:hover {
 
 
 .fullbgvideo { 
-	top: 0; 
-	left: 0;
+	top:0;
+	
+	left:0;
 	min-width: 100%; 
 	min-height: 100%;
 	width: auto; 
 	height: auto; 
 	z-index: -1000;
 	position: fixed;
+	
+}
+.skate {
+	background-repeat: no-repeat;
+	background-size: cover;
+	background: url('@{theme-path}/img/skate.jpg') no-repeat;
 }
 .pattern_background {
 	background-repeat: repeat;
@@ -371,6 +409,10 @@ h1.entry-title a:hover {
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position:center 20%;
+}
+.ifixed {
+		background-attachment: fixed;
+
 }
 
 .cellbg-image{
@@ -444,6 +486,7 @@ h1.entry-title a:hover {
 	background: @gray-darker;
 	color:@brand-main-near-white;
 }
+
 .bg-light-gray {
 	background: @gray;
 	color:@gray-lighter;
@@ -505,6 +548,9 @@ h1.entry-title a:hover {
 	border-color:@brand-main-dark;
 }
 
+.bg-black {
+	background:#111;
+}
 .bg-accent-one{
 	background: @brand-accent-one;
 	color:#fff;
@@ -555,6 +601,20 @@ h1.entry-title a:hover {
 .presslogo.armor.white {
 	background-position: -17px -232px;
 }
+
+//sales popup
+
+#salesbug {
+	position: fixed;
+	z-index: 1002;
+	right:0px;
+	bottom:0px;
+	width:280px;
+	display: block;
+	box-shadow: 0px 0px 2px rgba(255, 255, 255, 0.5);
+}
+
+
 // button mods
 
 
@@ -749,6 +809,15 @@ h1.entry-title a:hover {
     -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
 }
 
+.alpha-black60 {
+    /* Fallback for web browsers that don't support RGBa */
+   background-color: #000;
+    background-color: fade(#000, 60%);
+    
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+}
+
 .alpha-dark40 {
     /* Fallback for web browsers that don't support RGBa */
    background-color: @gray-darker;
@@ -785,6 +854,14 @@ h1.entry-title a:hover {
    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
 }
 
+.alpha20-light {
+    /* Fallback for web browsers that don't support RGBa */
+   background-color: #fff;
+   background-color: fade(#fff, 20%);
+    
+   /* For IE 8*/
+   -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+}
 .dd {
 	margin-bottom:2em;
 }
@@ -938,6 +1015,9 @@ a.txt-white {
 .border-light {
 	border:1px solid #fff;
 }
+.border-light-gray {
+	border:1px solid @gray-lighter;
+}
 .txt-responsive-xlg {
 	font-size:10vw;
 }
@@ -1035,27 +1115,26 @@ a.txt-white {
 	width:200px;	
 }
 .plan {
-	background: @gray;
+
 }
 .plan .row.no-gutter .col-inner {
 			  	  	
 	border:0px;
 }
-.plan .main {
+.plan.main {
 	
-	border-bottom:0px;
-	min-height: 158px;
+	height:100%;
 	border-left:3px solid @brand-main-mid;
 	background: #fff;
 }
-.plan:hover .main {
+.plan.main:hover {
 	background: @brand-main-mid;
 	color:#fff;
 	transition: background .25s
 }
 .plan .price-box {
-	min-height: 158px;
 	background: @gray-dark;
+	min-height: 160px;
 	/*box-shadow:inset 4px 0px 5px fade(@brand-main-dark,50%);*/
 
 }
@@ -1098,9 +1177,8 @@ a.txt-white {
 	line-height: 1.6em;
 	color:#fff;
 	font-weight: 200;
-	min-height: 40px;
 	background: fade(@gray-dark,20%);
-	margin:2px 2px 0;	
+	margin:2px 1px 0;	
 }
 
 
@@ -1208,6 +1286,7 @@ blockquote {
 	font-weight: 100;
 	
 }
+
 
 blockquote.right {
 	text-align: right;
@@ -1327,13 +1406,24 @@ blockquote p:after {
 	text-align: right;
 	border-left:0px;
 }
-.testimonial.reversed blockquote {
+.reversed blockquote {
 	min-height: 102px;
 	color:@gray-darker;
 	text-align: left;
 	border-right:0px;
 	border-left:5px solid @gray;
 }
+
+ blockquote.baquote {
+	font-size:2.6em;
+	font-weight: 200;
+}
+
+ blockquote.baquote-sm {
+	font-size:2.0em;
+	font-weight: 200;
+}
+
 
 .testimonial blockquote.txt-white {
 	color:#fff;
@@ -1348,20 +1438,47 @@ blockquote p:after {
 	padding:5;
 	background:#fff;
 	width:100px;
-	height:100px;
-	margin-left:30px;
-	float: right;
+	
+	
+}
+.inline-testimonial {
+	position: relative;	
+}
+.inline-testimonial .cta {
+	position: absolute;
+	top:0px;
+	right:0px;
+	z-index: 1033;
+	color:#fff;
+	border-left:1px solid #fff;
+	border-bottom:1px solid #fff;
+	background: rgba(255, 255, 255, 0.23);
 }
 
+img.inline-ba {
+	max-height: 140px;
+}
+.ambassicon {
+	background: @gray-light;
+	padding:10px;
+	display: inline-block;
+	margin:0 5px 10px 5px;
+	
+}
+.ambassicon span {
+	display: block;
+	max-width: 110px;
+	margin-top:5px;
+	font-size:12px;
+	color:#fff;
+}
 .testimonial .quoteavatar img {
 	border:0;
 	padding:5px;
-		background:#fff;
+	background:#fff;
 
 	width:100px;
-	height:100px;
-	margin:0 30px 0 0;
-	float: left;
+	
 }
 
 .testimonial .quoteavatar p {
@@ -1417,15 +1534,15 @@ dl > dd {
 	margin:2em 0;
 	border: 1px solid #fff;
 }
-.post .entry-content p:first-child:first-letter {
+.post .entry-content > p:nth-of-type(1):first-letter {
 	font-size:2em;
 	display: block;
 	float:left;
 	background: @gray-dark;
 	color:#fff;
-	padding:.92em .95em;
-	margin:0 .5em .1em 0;
-	line-height: 1.2em;
+	padding:.4em .6em;
+	margin: 0 .4em 0 0;
+	line-height: 1em;
 	font-family: @h-font;
 }
 .post .share {
@@ -1481,7 +1598,8 @@ i.surfingbird::before{
 	
 }
 .post .entry-meta.bottom {
-	border-top:1px solid @gray-lighter;
+	border-bottom:1px solid @gray-lighter;
+	padding:1em;
 }
 .post .entry-meta .fa {
 	line-height: 1.4em;
@@ -1770,9 +1888,10 @@ object {
 		background-image:url('@{theme-path}/img/cars.jpg');
 }
 .plan-managed-header {
-
 		background-image:url('@{theme-path}/img/coffee.jpg');
 }
+
+
 .plan-vps-header {
 
 		background-image:url('@{theme-path}/img/working.jpg');
@@ -1831,8 +1950,26 @@ object {
 .tools_header {
 	background-image:url('@{theme-path}/img/dev-tools.jpg');
 }
+.syed_header {
+	background-image:url('@{theme-path}/img/syed-bw.jpg');
+}
+.ski-header {
+	background-image:url('@{theme-path}/img/skitime.jpg');
+}
+.agency-header {
+	background-image:url('@{theme-path}/img/shoes.jpg');
+}
 //xs
 @media (max-width: @screen-xs-max) { /* Change to whatever media query you require */
+      .agency-header {
+			background-image:url('@{theme-path}/img/shoes_sm.jpg');
+		}
+      .ski-header {
+			background-image:url('@{theme-path}/img/skitime_m.jpg');
+		}
+      .syed_header {
+			background-image:url('@{theme-path}/img/syed-bw.jpg');
+		}
       .tools_header {
 			background-image:url('@{theme-path}/img/dev-tools_m.jpg');
 		}
@@ -1928,6 +2065,10 @@ object {
 			padding:15% 4%;
 		}
 		
+		blockquote.baquote {
+		font-size:1.4em;
+		font-weight: 200;
+		}
 		.down-caret {
 	
 			position: absolute;
@@ -1967,7 +2108,8 @@ object {
 		.fullbg.first {
 			padding-top:5em;
 	
-		}	
+		}
+			
 		.fullbg {
 			width:100%;
 			padding:20px 0;
@@ -1975,6 +2117,8 @@ object {
 			position: relative;
 		}
 	
+		
+		
 		.substyled {
 			font-family: @h-font;
 			font-size:2em;
@@ -2054,7 +2198,7 @@ object {
 			
 			font-size:.8em;
 			line-height: 1em;
-			padding:.20em .5em;
+			padding:.20em .8em;
 			text-align: center;
 			
 		}
@@ -2080,9 +2224,27 @@ object {
 			font-size:8vw;
 		}
 }
+//medium
+@media (min-width: @screen-md-min) and (max-width: @screen-md-max) { /* Change to whatever media query you require */
 
+	.plan .force-height {
+	
+	}
+}
+//large
+@media (min-width: @screen-lg-min)  { /* Change to whatever media query you require */
+
+	.plan .stats {
+		padding:.75em 1em 0 1em;
+	}
+}
 // small
 @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) { /* Change to whatever media query you require */
+		
+		 blockquote.baquote {
+			font-size:1.8em;
+			font-weight: 200;
+		}
 		.navbar-default {
 			height:50px;
 			padding-left:50px;
